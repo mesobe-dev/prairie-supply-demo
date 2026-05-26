@@ -56,7 +56,7 @@ export default function Navbar() {
                       window.location.href = `/shop?q=${encodeURIComponent(input.value.trim())}`;
                     }
                   }}
-                  className="absolute right-1.5 top-1.5 bottom-1.5 px-4 bg-[var(--brand-green)] text-white rounded-full text-sm font-medium hover:bg-[var(--brand-green-dark)] transition-colors"
+                  className="absolute right-1.5 top-1.5 bottom-1.5 px-4 bg-[var(--brand-orange)] text-white rounded-full text-sm font-medium hover:bg-[var(--brand-orange-dark)] transition-colors"
                 >
                   Search
                 </button>
@@ -82,7 +82,7 @@ export default function Navbar() {
                   }
                   setIsCartOpen(true);
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-green)] hover:bg-[var(--brand-green-dark)] text-white rounded-full text-sm font-semibold transition-all active:scale-[0.985]"
+                className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-dark)] text-white rounded-full text-sm font-semibold transition-all active:scale-[0.985]"
               >
                 Cart
                 <div className="bg-white/20 px-2 py-px rounded text-xs font-mono min-w-[20px] text-center">
