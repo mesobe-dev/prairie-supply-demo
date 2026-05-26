@@ -8,6 +8,10 @@ import { products, categories } from '@/lib/products';
 import { useCartStore } from '@/lib/store';
 import { toast } from 'sonner';
 
+// Prevent static prerendering because this page uses useSearchParams()
+// which requires dynamic rendering or a Suspense boundary.
+export const dynamic = 'force-dynamic';
+
 export default function ShopPage() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || '';
