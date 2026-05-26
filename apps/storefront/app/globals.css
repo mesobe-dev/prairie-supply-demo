@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "@storefront-ui/react/tailwind-config";
+@source "./node_modules/@storefront-ui/react/**/*.{js,ts,jsx,tsx,mjs}";
+
+/* Prairie Supply Co. - UFA-inspired farm supply theme */
+:root {
+  /* Brand colors inspired by UFA (forest green + safety orange) */
+  --brand-green: #006B3F;
+  --brand-green-dark: #004D2E;
+  --brand-orange: #E65C00;
+  --brand-orange-dark: #C44D00;
+  
+  /* Neutral palette - practical & trustworthy */
+  --background: #FAFAF8;
+  --foreground: #1F2A1F;
+  --surface: #FFFFFF;
+  --surface-muted: #F3F4F0;
+  --border: #D1D5C9;
+  --text-muted: #5C6659;
+  
+  /* Typography */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--brand-green);
+  --color-accent: var(--brand-orange);
+}
+
+body {
+  font-family: var(--font-geist-sans);
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prairie Supply Co. — UI Customization Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    :root {
+      --brand-green: #006B3F;
+      --brand-green-dark: #004D2E;
+      --brand-orange: #E65C00;
+    }
+    
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    
+    .heading-font {
+      font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    .code-block {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .section-header {
+      scroll-margin-top: 80px;
+    }
+
+    .doc-container {
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    pre {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .nav-link {
+      transition: all 0.1s ease;
+    }
+    
+    .nav-link:hover {
+      color: #006B3F;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      color: #334155;
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAF8] text-[#1F2A1F]">
+  <!-- Top Navigation -->
+  <nav class="bg-white border-b border-[#D1D5C9] sticky top-0 z-50">
+    <div class="max-w-screen-xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-x-3">
+          <div class="w-9 h-9 rounded-full bg-[#006B3F] flex items-center justify-center">
+            <span class="text-white font-bold text-xl tracking-tighter">PS</span>
+          </div>
+          <div>
+            <div class="font-semibold text-xl tracking-tighter text-[#004D2E]">Prairie Supply Co.</div>
+            <div class="text-[10px] text-[#5C6659] -mt-1">UI Guide</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-x-6 text-sm">
+          <a href="#structure" class="nav-link text-[#5C6659] hover:text-[#006B3F] font-medium">Structure</a>
+          <a href="#theming" class="nav-link text-[#5C6659] hover:text-[#006B3F] font-medium">Theming</a>
+          <a href="#components" class="nav-link text-[#5C6659] hover:text-[#006B3F] font-medium">Components</a>
+          <a href="#customization" class="nav-link text-[#5C6659] hover:text-[#006B3F] font-medium">Customization</a>
+          <a href="#resources" class="nav-link text-[#5C6659] hover:text-[#006B3F] font-medium">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="doc-container px-6 pt-10 pb-20">
+    <!-- Header -->
+    <div class="max-w-3xl mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#006B3F]/10 text-[#006B3F] text-sm font-medium mb-4">
+        <i class="fa-solid fa-book"></i>
+        <span>Developer Documentation</span>
+      </div>
+      
+      <h1 class="text-5xl tracking-tighter font-semibold text-[#004D2E] heading-font">
+        Prairie Supply Co.<br>
+        UI Customization Guide
+      </h1>
+      
+      <p class="mt-4 text-xl text-[#5C6659]">
+        This guide is for frontend developers working on the Prairie Supply Co. Storefront demo.
+      </p>
+      
+      <div class="mt-4 flex items-center gap-2 text-sm">
+        <div class="px-3 py-1 bg-white border border-[#D1D5C9] rounded-full text-[#5C6659]">
+          Next.js 16 + Tailwind v4 + Storefront UI v4
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Structure -->
+    <div id="structure" class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4 flex items-center gap-3">
+        <span>Project Structure</span>
+      </h2>
+      <p class="text-[#5C6659] mb-6">Relevant folders and files for UI development.</p>
+      
+      <div class="bg-white border border-[#D1D5C9] rounded-2xl p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+        <pre class="text-[#334155]">apps/storefront/
+├── app/
+│   ├── layout.tsx              # Global layout + Navbar
+│   ├── page.tsx                # Home page (hero + categories)
+│   ├── shop/
+│   │   ├── page.tsx            # Main shop + filters
+│   │   └── [category]/page.tsx # Category landing pages
+│   ├── product/[slug]/page.tsx # Product Detail Page
+│   ├── cart/page.tsx
+│   └── checkout/page.tsx
+├── components/
+│   ├── Navbar.tsx
+│   ├── CartDrawer.tsx
+│   └── AuthModal.tsx
+├── lib/
+│   ├── products.ts             # Mock catalog + types
+│   └── store.ts                # Zustand cart + auth
+└── app/globals.css             # All theming + Storefront UI setup</pre>
+      </div>
+    </div>
+
+    <!-- Theming -->
+    <div id="theming" class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Theming &amp; Brand Colors</h2>
+      <p class="text-[#5C6659] mb-6">All brand colors are defined as CSS custom properties in <code class="bg-[#F1F5F9] px-1.5 py-0.5 rounded text-sm">app/globals.css</code>.</p>
+      
+      <div class="bg-[#0f172a] text-[#e2e8f0] p-6 rounded-2xl mb-6 overflow-x-auto">
+        <pre class="code-block text-sm"><code>:root {
+  --brand-green: #006B3F;        /* Primary (UFA-inspired forest green) */
+  --brand-green-dark: #004D2E;
+  --brand-orange: #E65C00;       /* Accent (safety orange) */
+  --brand-orange-dark: #C44D00;
+
+  --background: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #D1D5C9;
+  --text-muted: #5C6659;
+}</code></pre>
+      </div>
+
+      <h3 class="font-semibold text-lg mb-3">How to Change the Theme</h3>
+      <ol class="list-decimal list-inside space-y-2 text-[#334155]">
+        <li>Edit the CSS variables in <code>app/globals.css</code></li>
+        <li>Update the top bar color in <code>app/layout.tsx</code></li>
+        <li>(Optional) Update the logo in <code>components/Navbar.tsx</code></li>
+      </ol>
+      <div class="mt-3 p-4 bg-[#FEF3E8] border border-[#F5C9A0] rounded-xl text-sm">
+        <strong class="text-[#C2410C]">Tip:</strong> Storefront UI components are heavily driven by CSS variables. Changing the brand colors here will affect many components automatically.
+      </div>
+    </div>
+
+    <!-- Using Storefront UI Components -->
+    <div id="components" class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Using Storefront UI Components</h2>
+      <p class="text-[#5C6659] mb-6">We use <code class="bg-[#F1F5F9] px-1.5 py-0.5 rounded">@storefront-ui/react</code> (v4) extensively.</p>
+      
+      <h3 class="font-semibold mb-2">Import Pattern</h3>
+      <div class="bg-[#0f172a] p-5 rounded-2xl mb-8">
+        <pre class="code-block text-[#e2e8f0] text-sm"><code>import { 
+  SfButton, 
+  SfDrawer, 
+  SfModal, 
+  SfRating,
+  SfInput 
+} from '@storefront-ui/react';</code></pre>
+      </div>
+
+      <h3 class="font-semibold mb-3">Recommended Components</h3>
+      <div class="overflow-x-auto bg-white border border-[#D1D5C9] rounded-2xl">
+        <table class="w-full text-sm">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Use Case</th>
+              <th>Example Location</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y">
+            <tr>
+              <td><code>SfButton</code></td>
+              <td>CTAs, Add to cart, Navigation</td>
+              <td>Everywhere</td>
+            </tr>
+            <tr>
+              <td><code>SfDrawer</code></td>
+              <td>Cart slide-in</td>
+              <td><code>components/CartDrawer.tsx</code></td>
+            </tr>
+            <tr>
+              <td><code>SfModal</code></td>
+              <td>Auth, Quick views</td>
+              <td><code>components/AuthModal.tsx</code></td>
+            </tr>
+            <tr>
+              <td><code>SfRating</code></td>
+              <td>Reviews</td>
+              <td>PDP</td>
+            </tr>
+            <tr>
+              <td><code>SfInput</code> / <code>SfSelect</code></td>
+              <td>Forms</td>
+              <td>Checkout, filters</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Product Catalog -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Customizing the Product Catalog</h2>
+      <p class="text-[#5C6659] mb-4">All mock products live in <code>lib/products.ts</code>.</p>
+      
+      <h3 class="font-semibold mb-2">Adding a New Product</h3>
+      <div class="bg-[#0f172a] p-5 rounded-2xl mb-6">
+        <pre class="code-block text-sm text-[#e2e8f0]"><code>{
+  id: "p44",
+  name: "New Product Name",
+  slug: "new-product-name",
+  price: 49.99,
+  category: "Feed &amp; Nutrition",     // Must match a category name
+  subcategory: "Cattle Feed",
+  image: "https://picsum.photos/id/292/600/600",
+  rating: 4.7,
+  reviewCount: 38,
+  inStock: true,
+  description: "...",
+  variants: [{ type: "Size", options: ["10kg", "25kg"] }]
+}</code></pre>
+      </div>
+
+      <div class="bg-[#FEF3E8] border border-[#F5C9A0] rounded-xl p-4 text-sm">
+        <strong>Important:</strong> The <code>category</code> field must exactly match one of the names in the <code>categories</code> array.
+      </div>
+    </div>
+
+    <!-- State Management -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">State Management</h2>
+      <p class="text-[#5C6659]">We use <strong>Zustand</strong> for cart and authentication:</p>
+      <ul class="list-disc list-inside mt-3 space-y-1 text-[#334155]">
+        <li><code>lib/store.ts</code> → <code>useCartStore</code> and <code>useAuthStore</code></li>
+        <li>Both persist to localStorage</li>
+      </ul>
+    </div>
+
+    <!-- Tailwind Setup -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Tailwind + Storefront UI Setup</h2>
+      <p class="text-[#5C6659] mb-4">The project uses Tailwind v4 (CSS-first).</p>
+      
+      <div class="bg-[#0f172a] p-5 rounded-2xl">
+        <pre class="code-block text-sm text-[#e2e8f0]"><code>@import "tailwindcss";
+@import "@storefront-ui/react/tailwind-config";
+@source "./node_modules/@storefront-ui/react/**/*.{js,ts,jsx,tsx,mjs}";</code></pre>
+      </div>
+    </div>
+
+    <!-- Common Tasks -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Common Customization Tasks</h2>
+      
+      <div class="space-y-4">
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="font-semibold">Change Navbar Behavior</div>
+          <div class="text-sm text-[#5C6659] mt-1">File: <code>components/Navbar.tsx</code></div>
+        </div>
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="font-semibold">Improve Category Pages</div>
+          <div class="text-sm text-[#5C6659] mt-1">File: <code>app/shop/[category]/page.tsx</code></div>
+        </div>
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="font-semibold">Add More Realistic Checkout</div>
+          <div class="text-sm text-[#5C6659] mt-1">File: <code>app/checkout/page.tsx</code></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Practices -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Best Practices</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-[#006B3F] mt-1"></i>
+            <div>
+              <div class="font-medium">Prefer Storefront UI components</div>
+              <div class="text-sm text-[#5C6659]">Over custom buttons/inputs when possible for consistency + accessibility.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-[#006B3F] mt-1"></i>
+            <div>
+              <div class="font-medium">Keep product data realistic</div>
+              <div class="text-sm text-[#5C6659]">Farmers notice when prices or descriptions feel off.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-[#006B3F] mt-1"></i>
+            <div>
+              <div class="font-medium">Use CSS variables</div>
+              <div class="text-sm text-[#5C6659]">Instead of hard-coded Tailwind colors for brand elements.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border border-[#D1D5C9] rounded-2xl p-5">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-check text-[#006B3F] mt-1"></i>
+            <div>
+              <div class="font-medium">Test on mobile</div>
+              <div class="text-sm text-[#5C6659]">The current drawer and filters work well but can always be improved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources -->
+    <div id="resources">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#004D2E] mb-4">Resources</h2>
+      <div class="space-y-2">
+        <a href="https://docs.storefrontui.io/v2/react" target="_blank" 
+           class="block p-4 bg-white border border-[#D1D5C9] hover:border-[#006B3F] rounded-2xl transition-colors">
+          <div class="font-medium">Storefront UI React Docs</div>
+          <div class="text-sm text-[#5C6659]">https://docs.storefrontui.io/v2/react</div>
+        </a>
+        <a href="http://play-react.vuestorefront.io/" target="_blank" 
+           class="block p-4 bg-white border border-[#D1D5C9] hover:border-[#006B3F] rounded-2xl transition-colors">
+          <div class="font-medium">Storefront UI Playground</div>
+          <div class="text-sm text-[#5C6659]">http://play-react.vuestorefront.io/</div>
+        </a>
+        <a href="https://tailwindcss.com/docs" target="_blank" 
+           class="block p-4 bg-white border border-[#D1D5C9] hover:border-[#006B3F] rounded-2xl transition-colors">
+          <div class="font-medium">Tailwind v4 Documentation</div>
+          <div class="text-sm text-[#5C6659]">https://tailwindcss.com/docs</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-[#D1D5C9] text-center text-sm text-[#5C6659]">
+      <p>This is a demo project. The goal is to showcase what a modern, Storefront UI-powered agricultural e-commerce experience can look like while remaining easy for developers to customize and extend.</p>
+      <p class="mt-1 font-medium">Happy building!</p>
+    </div>
+  </div>
+
+  <script>
+    // Simple Tailwind script for any future interactivity
+    console.log('%c[Prairie Supply] UI Customization Guide loaded', 'color:#006B3F');
+  </script>
+</body>
+</html>
