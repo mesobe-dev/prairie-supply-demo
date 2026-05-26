@@ -39,7 +39,7 @@ export default function PrairieSupplyHome() {
                   variant="secondary" 
                   className="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-white border-white/30 text-base px-8 h-14 rounded-full font-semibold backdrop-blur"
                 >
-                  See Fencing Deals
+                  View Fencing Details
                 </SfButton>
               </Link>
             </div>
