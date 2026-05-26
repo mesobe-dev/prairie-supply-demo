@@ -2,13 +2,16 @@
 
 import Link from 'next/link';
 import { useCartStore } from '@/lib/store';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import CartDrawer from './CartDrawer';
 
 export default function Navbar() {
   const [isHydrated, setIsHydrated] = useState(false);
   const totalItems = useCartStore((state) => state.getTotalItems());
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const cartButtonRef = useRef<HTMLButtonElement>(null);
+  const [cartRight, setCartRight] = useState(24); // default fallback
 
   // Prevent hydration mismatch caused by Zustand persist (localStorage)
   useEffect(() => {
@@ -70,7 +73,15 @@ export default function Navbar() {
               </Link>
 
               <button
-                onClick={() => setIsCartOpen(true)}
+                ref={cartButtonRef}
+                onClick={() => {
+                  if (cartButtonRef.current) {
+                    const rect = cartButtonRef.current.getBoundingClientRect();
+                    const rightOffset = window.innerWidth - rect.right;
+                    setCartRight(rightOffset);
+                  }
+                  setIsCartOpen(true);
+                }}
                 className="flex items-center gap-2 px-5 py-2.5 bg-[var(--brand-green)] hover:bg-[var(--brand-green-dark)] text-white rounded-full text-sm font-semibold transition-all active:scale-[0.985]"
               >
                 Cart
@@ -99,7 +110,11 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <CartDrawer 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)} 
+        right={cartRight} 
+      />
     </>
   );
 }

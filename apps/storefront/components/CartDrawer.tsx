@@ -8,9 +8,10 @@ import { useEffect } from 'react';
 interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  right?: number; // Distance from the right edge of the viewport (in pixels)
 }
 
-export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
+export default function CartDrawer({ isOpen, onClose, right = 24 }: CartDrawerProps) {
   const { items, removeFromCart, updateQuantity, getTotalPrice, getTotalItems } = useCartStore();
 
   const total = getTotalPrice();
@@ -39,7 +40,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
       {/* Floating Cart Panel - aligned under the cart button */}
       <div 
-        className="fixed top-[76px] right-6 z-[70] w-[380px] bg-white rounded-2xl shadow-2xl border border-[var(--border)] flex flex-col max-h-[calc(100vh-100px)] overflow-hidden"
+        className="fixed top-[76px] z-[70] w-[380px] bg-white rounded-2xl shadow-2xl border border-[var(--border)] flex flex-col max-h-[calc(100vh-100px)] overflow-hidden"
+        style={{ right: `${right}px` }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
