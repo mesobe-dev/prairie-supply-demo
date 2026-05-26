@@ -128,12 +128,12 @@ export default function CartDrawer({ isOpen, onClose, right = 24 }: CartDrawerPr
 
             <div className="space-y-2.5">
               <Link href="/cart" onClick={onClose}>
-                <SfButton size="md" variant="secondary" className="w-full rounded-full">
+                <SfButton size="base" variant="secondary" className="w-full rounded-full">
                   View Full Cart
                 </SfButton>
               </Link>
               <Link href="/checkout" onClick={onClose}>
-                <SfButton size="md" className="w-full bg-[var(--brand-green)] hover:bg-[var(--brand-green-dark)] text-white rounded-full">
+                <SfButton size="base" className="w-full bg-[var(--brand-green)] hover:bg-[var(--brand-green-dark)] text-white rounded-full">
                   Proceed to Checkout
                 </SfButton>
               </Link>
