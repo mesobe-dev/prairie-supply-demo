@@ -1,5 +1,6 @@
 'use client';
 
+// Redeploy trigger: Fixed SfButton size="md" → "base" for Vercel build
 import { SfButton } from '@storefront-ui/react';
 import { useCartStore } from '@/lib/store';
 import Link from 'next/link';
