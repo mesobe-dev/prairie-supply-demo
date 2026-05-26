@@ -96,14 +96,14 @@ export default function Navbar() {
         {/* Secondary nav - Top Level Categories */}
         <div className="border-t border-[var(--border)] bg-white hidden lg:block">
           <div className="max-w-7xl mx-auto px-6 flex items-center gap-x-7 text-sm font-medium py-3 text-[var(--text-muted)]">
-            <Link href="/shop/feed-nutrition" className="hover:text-[var(--brand-green)] transition-colors">Feed &amp; Nutrition</Link>
-            <Link href="/shop/fencing-livestock" className="hover:text-[var(--brand-green)] transition-colors">Fencing &amp; Livestock</Link>
-            <Link href="/shop/crop-inputs" className="hover:text-[var(--brand-green)] transition-colors">Crop Inputs</Link>
-            <Link href="/shop/workwear-boots" className="hover:text-[var(--brand-green)] transition-colors">Workwear &amp; Boots</Link>
-            <Link href="/shop/equipment-tools" className="hover:text-[var(--brand-green)] transition-colors">Equipment &amp; Tools</Link>
-            <Link href="/shop/animal-health" className="hover:text-[var(--brand-green)] transition-colors">Animal Health</Link>
+            <Link href="/shop/feed-nutrition" className="hover:text-[var(--brand-orange)] transition-colors">Feed &amp; Nutrition</Link>
+            <Link href="/shop/fencing-livestock" className="hover:text-[var(--brand-orange)] transition-colors">Fencing &amp; Livestock</Link>
+            <Link href="/shop/crop-inputs" className="hover:text-[var(--brand-orange)] transition-colors">Crop Inputs</Link>
+            <Link href="/shop/workwear-boots" className="hover:text-[var(--brand-orange)] transition-colors">Workwear &amp; Boots</Link>
+            <Link href="/shop/equipment-tools" className="hover:text-[var(--brand-orange)] transition-colors">Equipment &amp; Tools</Link>
+            <Link href="/shop/animal-health" className="hover:text-[var(--brand-orange)] transition-colors">Animal Health</Link>
             
-            <Link href="/shop" className="ml-auto text-[var(--brand-green)] font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+            <Link href="/shop" className="ml-auto text-[var(--brand-green)] font-semibold flex items-center gap-1 hover:gap-2 transition-all hover:text-[var(--brand-orange)]">
               Full Catalogue →
             </Link>
           </div>

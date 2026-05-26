@@ -34,7 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
         {/* Global Top Bar */}
-        <div className="bg-[var(--brand-green)] text-white text-sm py-2 z-50">
+        <div className="bg-zinc-600 text-white text-sm py-2 z-50">
           <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs md:text-sm">
               <span className="font-medium">100% Canadian Owned &amp; Operated</span>
