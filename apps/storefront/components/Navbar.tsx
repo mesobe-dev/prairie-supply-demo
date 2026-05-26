@@ -2,12 +2,18 @@
 
 import Link from 'next/link';
 import { useCartStore } from '@/lib/store';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CartDrawer from './CartDrawer';
 
 export default function Navbar() {
+  const [isHydrated, setIsHydrated] = useState(false);
   const totalItems = useCartStore((state) => state.getTotalItems());
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // Prevent hydration mismatch caused by Zustand persist (localStorage)
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   return (
     <>
@@ -69,7 +75,7 @@ export default function Navbar() {
               >
                 Cart
                 <div className="bg-white/20 px-2 py-px rounded text-xs font-mono min-w-[20px] text-center">
-                  {totalItems}
+                  {isHydrated ? totalItems : 0}
                 </div>
               </button>
             </div>
