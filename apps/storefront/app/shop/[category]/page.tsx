@@ -25,7 +25,7 @@ export default function CategoryPage() {
     return (
       <div className="max-w-4xl mx-auto px-6 py-20 text-center">
         <h1 className="text-3xl mb-4">Category not found</h1>
-        <Link href="/shop" className="text-[var(--brand-green)] underline">Browse all products</Link>
+        <Link href="/shop" className="text-[var(--brand-orange)] underline">Browse all products</Link>
       </div>
     );
   }
@@ -90,19 +90,19 @@ export default function CategoryPage() {
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {product.badge && (
-                  <div className="absolute top-3 left-3 bg-[var(--brand-orange)] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="absolute top-3 left-3 bg-[var(--brand-green)] text-white text-xs font-semibold px-3 py-1 rounded-full">
                     {product.badge}
                   </div>
                 )}
                 {discount > 0 && (
-                  <div className="absolute top-3 right-3 bg-white text-[var(--brand-orange)] text-xs font-bold px-2.5 py-0.5 rounded shadow">
+                  <div className="absolute top-3 right-3 bg-white text-[var(--brand-green)] text-xs font-bold px-2.5 py-0.5 rounded shadow">
                     SAVE {discount}%
                   </div>
                 )}
               </Link>
 
               <div className="p-5 flex flex-col flex-1">
-                <Link href={`/product/${product.slug}`} className="font-semibold leading-tight mb-2 hover:text-[var(--brand-green)]">
+                <Link href={`/product/${product.slug}`} className="font-semibold leading-tight mb-2 hover:text-[var(--brand-orange)]">
                   {product.name}
                 </Link>
 
@@ -119,7 +119,7 @@ export default function CategoryPage() {
                   </Link>
                   <SfButton
                     size="sm"
-                    className="flex-1 bg-[var(--brand-green)] hover:bg-[var(--brand-green-dark)] text-white rounded-full"
+                    className="flex-1 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-dark)] text-white rounded-full"
                     onClick={() => handleAddToCart(product)}
                   >
                     Add to Cart

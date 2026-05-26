@@ -157,7 +157,7 @@ export default function ShopContent() {
                 setInStockOnly(false);
                 setPriceMax(300);
               }}
-              className="text-sm text-[var(--brand-green)] hover:underline"
+              className="text-sm text-[var(--brand-orange)] hover:underline"
             >
               Clear all filters
             </button>
@@ -211,12 +211,12 @@ export default function ShopContent() {
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {product.badge && (
-                        <div className="absolute top-3 left-3 bg-[var(--brand-orange)] text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        <div className="absolute top-3 left-3 bg-[var(--brand-green)] text-white text-xs font-semibold px-3 py-1 rounded-full">
                           {product.badge}
                         </div>
                       )}
                       {discount > 0 && (
-                        <div className="absolute top-3 right-3 bg-white text-[var(--brand-orange)] text-xs font-bold px-2.5 py-0.5 rounded shadow">
+                        <div className="absolute top-3 right-3 bg-white text-[var(--brand-green)] text-xs font-bold px-2.5 py-0.5 rounded shadow">
                           SAVE {discount}%
                         </div>
                       )}
@@ -224,7 +224,7 @@ export default function ShopContent() {
 
                     <div className="p-5 flex flex-col flex-1">
                       <div className="text-xs text-[var(--text-muted)] mb-1">{product.category}</div>
-                      <Link href={`/product/${product.slug}`} className="font-semibold leading-tight mb-2 hover:text-[var(--brand-green)]">
+                      <Link href={`/product/${product.slug}`} className="font-semibold leading-tight mb-2 hover:text-[var(--brand-orange)]">
                         {product.name}
                       </Link>
 
@@ -241,7 +241,7 @@ export default function ShopContent() {
                         </Link>
                         <SfButton
                           size="sm"
-                          className="flex-1 bg-[var(--brand-green)] hover:bg-[var(--brand-green-dark)] rounded-full text-white"
+                          className="flex-1 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-dark)] rounded-full text-white"
                           onClick={() => handleAddToCart(product)}
                         >
                           Add to Cart
