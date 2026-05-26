@@ -9,8 +9,13 @@ import { getProductBySlug, products } from '@/lib/products';
 import { useCartStore } from '@/lib/store';
 import { toast } from 'sonner';
 
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
 // Helper to generate multiple images for the product gallery
-function getGalleryImages(product: any) {
+function getGalleryImages(product: any): GalleryImage[] {
   if (product.images && product.images.length > 0) {
     return product.images;
   }
@@ -78,7 +83,7 @@ export default function ProductDetailPage() {
           {/* Thumbnails */}
           {galleryImages.length > 1 && (
             <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
-              {galleryImages.map((image, index) => (
+              {galleryImages.map((image: GalleryImage, index: number) => (
                 <button
                   key={index}
                   onClick={() => setActiveImageIndex(index)}
